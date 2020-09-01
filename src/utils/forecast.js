@@ -15,7 +15,8 @@ const forecast = (location, callback)=>{
             } else {
                 const temp = response.body.current.temperature;
                 const rain = response.body.current.precip;
-                callback(undefined, `It is currently ${temp} degrees out. There is a ${rain} chance of rain.`);
+                const time = response.body.current.observation_time;
+                callback(undefined, `${time} - It is currently ${temp} degrees out. There is a ${rain} chance of rain.`);
             }
         });
 };
